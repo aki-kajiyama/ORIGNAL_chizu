@@ -1,0 +1,95 @@
+/************************全体************************/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    /*ページ全体の背景色*/
+	background-color:#F5FFFA;
+}
+
+/************************タイトル************************/
+
+h1 p {
+  position: relative;
+  padding: 0.2em 0.5em;
+  background: -webkit-linear-gradient(to right, rgb(255, 124, 111), #ffc994);
+  background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+  color: white;
+  font-weight: lighter;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.56);
+}
+
+/************************スライダー画像************************/
+
+.img1 {
+    height: 750px;
+    width: 1500px;
+}
+
+/************************マップ************************/
+.img2 {
+    height: 700px;
+    width: 1300px;
+    float:right
+}
+
+/************************ボタン位置************************/
+
+ul {
+    list-style: none;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.box {
+    position: relative;
+}
+
+/************************ボタン種類************************/
+
+button {
+    background-color: gray;
+    width: 200px;
+    height: 50px;
+}
+
+.btn-circle {
+    margin-left: 30px;
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 90px;
+    height:90px;
+    line-height: 90px;
+    border-bottom: solid 5px #627295;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%);
+    transition: .4s;
+}
+
+.btn-circle:hover {
+  background: #40E0D0;
+}
+
+.btn-circle:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    /*下に動く*/
+    transform: translateY(4px);
+    /*線を消す*/
+    border-bottom: none;
+}
+
+/************************リンク************************/
+
+.recommend {
+    font-size: 14px;
+}

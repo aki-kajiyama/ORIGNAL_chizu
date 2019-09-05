@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Aki Kajiyama's Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <h1>
+      <p>長野圏内スキー場検索サイト</p>
+    </h1>
+  </header>
+  <main>
+    <div class="slider">
+      <a href="index.html"><img class="img1" src="images_snow/snow1.jpg" width="500" height="300" alt="snow1"></a>
+      <a href="index.html"><img class="img1" src="images_snow/snow2.jpg" width="500" height="300" alt="snow2"></a>
+      <a href="index.html"><img class="img1" src="images_snow/snow3.jpg" width="500" height="300" alt="snow3"></a>
+      <a href="index.html"><img class="img1" src="images_snow/snow4.jpg" width="500" height="300" alt="snow4"></a>
+      <a href="index.html"><img class="img1" src="images_snow/snow5.jpg" width="500" height="300" alt="snow5"></a>
+      <a href="index.html"><img class="img1" src="images_snow/snow6.jpg" width="500" height="300" alt="snow6"></a>
+      <a href="index.html"><img class="img1" src="images_snow/snow7.jpg" width="500" height="300" alt="snow7"></a>
+    </div>
+
+    <div class="box">
+      <ul>
+        <li><a id="skiing_button" class="btn-circle">スキー場</a></li>
+        <li><a id="hotel_button" class="btn-circle">ホテル</a></li>
+        <li><a id="spa_button" class="btn-circle">温泉</a></li>
+        <li><a href="https://snow.gnavi.co.jp/search/list/spl_area01.php" class="recommend">おすすめ情報サイト！</a></li>
+      </ul>
+    </div>
+
+    <div id="map" style="height: 700px; width: 1300px; float:right;"></div>
+  </main>
+
+  <script type="text/javascript" src="./JQuery-Snowfall-master/dist/snowfall.jquery.min.js"></script>
+  <script src="main.js"></script>
+
+  <div id="map"></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy-Dia3pC74x8WHgx6YC9YXyLzYRJexks&libraries=places&callback=initMap" async defer></script>
+</body>
+
+
+</html>
