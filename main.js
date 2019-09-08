@@ -1,10 +1,15 @@
 /* jshint curly:true, debug:true */
 /* globals $, firebase, location, moment */
+
+// ***********************スライダー************************
+
 $(document).ready(function() {
   $('.slider').bxSlider({
     auto: true,
     pause: 5000,
   });
+
+  // ***********************雪のアニメーション************************
 
   $(document).snowfall({
     flakeCount: 200, // 要素の数
@@ -16,19 +21,11 @@ $(document).ready(function() {
     maxSpeed: 2, // 要素の最大落下スピード
     round: true, // 要素に丸みを持たせる？
     shadow: false // 要素に影をつける？
-    //collection : 'div'		// 要素を指定の要素に積もらせる設定(画像を設定してもflakeColorで指定した要素の色が積もります)
-    //image : './image.png'		// 要素を指定の画像に変更
   });
 });
 
-//  var map = new google.maps.Map(document.getElementById('map'), {
-//         center: {
-//           lat: -34.397, //緯度を設定
-//           lng: 150.644 //経度を設定
-//         },
-//         zoom: 8 //地図のズームを設定
-//       });
 
+// ***********************map検索************************
 
 function initMap() {
   var center = new google.maps.LatLng(36.184066, 138.010876); // 4県の境目
@@ -39,6 +36,10 @@ function initMap() {
   });
 
   var markers = []; // Google maps上に表示されてるマーカー
+
+  var iw = new google.maps.InfoWindow()
+
+  // ***********************スキーボタン************************
 
   $('#skiing_button').on('click', function() {
     var request = {
@@ -60,24 +61,30 @@ function initMap() {
         results.forEach(function(place) {
           var icon = {
             url: "icon/icon1.png",
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
           };
 
-          markers.push(new google.maps.Marker({
+          var m = new google.maps.Marker({
             map: map,
             icon: icon,
             title: place.name,
             position: place.geometry.location
-          }));
+          });
 
+          console.log('place', place)
+          google.maps.event.addListener(m, 'click', function(event) {
+            var content = '<div style="font-weight: 500;">' + place.name + '</div><div>' + place.formatted_address + '</div>'
+            new google.maps.InfoWindow({ content: content }).open(map, m);
+          });
 
+          markers.push(m);
         })
       }
     });
   });
+
+  // ***********************ホテルボタン************************
+
   $('#hotel_button').on('click', function() {
     var request = {
       query: 'ホテル',
@@ -94,25 +101,30 @@ function initMap() {
         results.forEach(function(place) {
           var icon = {
             url: "icon/icon2.png",
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
           };
 
-          markers.push(new google.maps.Marker({
+          var m = new google.maps.Marker({
             map: map,
             icon: icon,
             title: place.name,
-            // description: place.geometry,
             position: place.geometry.location
-          }));
+          });
 
+          console.log('place', place)
+          google.maps.event.addListener(m, 'click', function(event) {
+            var content = '<div style="font-weight: 500;">' + place.name + '</div><div>' + place.formatted_address + '</div>'
+            new google.maps.InfoWindow({ content: content }).open(map, m);
+          });
 
+          markers.push(m);
         })
       }
     });
   });
+
+  // ***********************温泉ボタン************************
+
   $('#spa_button').on('click', function() {
     var request = {
       query: '温泉',
@@ -129,23 +141,26 @@ function initMap() {
         results.forEach(function(place) {
           var icon = {
             url: "icon/icon3.png",
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
           };
 
-          markers.push(new google.maps.Marker({
+          var m = new google.maps.Marker({
             map: map,
             icon: icon,
             title: place.name,
             position: place.geometry.location
-          }));
+          });
 
+          console.log('place', place)
+          google.maps.event.addListener(m, 'click', function(event) {
+            var content = '<div style="font-weight: 500;">' + place.name + '</div><div>' + place.formatted_address + '</div>'
+            new google.maps.InfoWindow({ content: content }).open(map, m);
+          });
 
+          markers.push(m);
         })
       }
     });
   });
-  
+
 }
